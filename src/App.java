@@ -18,7 +18,7 @@ public class App extends Application {
     @Override
     public void start(Stage primarStage) throws Exception
     {
-        Test myObj= new Test();
+        //Test myObj= new Test();
         //Test pour utiliser une classe dans un autre fichier
         //System.out.println(myObj.main());
         Color black = Color.BLACK;
