@@ -30,13 +30,7 @@ public class Test {
         double b=0.0;
         Scanner reader = new Scanner(System.in); // Reading from System.in
         int in=0;
-        arrayCalcul.add("4");
-        arrayCalcul.add("+");
-        arrayCalcul.add("2");
-        arrayCalcul.add("-");
-        arrayCalcul.add("6");
-        arrayCalcul.add("");
-        /*
+        
 
         while (!n.equals("")) { //n.equals car les strings n'utilisent pas == ou !=
             System.out.println("Enter a number: ");
@@ -53,7 +47,7 @@ public class Test {
             in++;
         }
 
-        */
+        
         System.out.println("--------------------------------------------");
         for (int i=0;i<arrayCalcul.size();i++){
             try {
@@ -61,29 +55,37 @@ public class Test {
                 //Integer.parseInt(string);
                 Integer.parseInt(arrayCalcul.get(i));
                 strResult+=(arrayCalcul.get(i));
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException e) 
+            {
                 // TODO: handle exception
-                if (strOperation=="")
+                
+
+                if (strOperation.equals(""))
                 {
                     a=Integer.parseInt(strResult);
                     strResult="";
                     strOperation=arrayCalcul.get(i);
                 }
-                else if (i==((arrayCalcul.size())-1)){
-                    strOperation=arrayCalcul.get(i);
+                else if (i==((arrayCalcul.size())-1))
+                {
                     b=Integer.parseInt(strResult);
                     strResult="";
-                    result+=operator_detector(strOperation,a,b);
+                    result=operator_detector(strOperation,a,b);
                     a=result;
                 }
                 else
                 {
-                    strOperation=arrayCalcul.get(i);
-                    b=Integer.parseInt(strResult);
-                    strResult="";
-                    result+=operator_detector(strOperation,a,b);
-                    a=result;
+                    if (!strOperation.equals(""))
+                    {
+                        b=Integer.parseInt(strResult);
+                        strResult="";
+                        result=operator_detector(strOperation,a,b);
+                        strOperation=arrayCalcul.get(i);
+                        a=result;
+                    }
                 }
+
+                    
             }
         }
         System.out.println();
@@ -92,7 +94,6 @@ public class Test {
         System.out.println("-------------------------");
         // Once finished
         System.out.println(result);
-        System.out.println(strOperation);
         
     }
 }
