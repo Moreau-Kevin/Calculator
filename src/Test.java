@@ -17,6 +17,29 @@ public class Test {
             case "/":
             result=a/b;
                 break;
+            case "^":
+            if (b>0)
+            {
+                result=a;
+                for (int i =1; i<b; i++)
+                {
+                    result*=a;
+                }
+            }
+            else if (b==0)
+            {
+                result=1;
+            }
+            else
+            {
+                result=a;
+                b*=-1;
+                for (int i =1; i<b; i++)
+                {
+                    result*=a;
+                }
+                result=1/result;
+            }
         }
         return result;
     }
@@ -29,7 +52,6 @@ public class Test {
         double a=0.0;
         double b=0.0;
         Scanner reader = new Scanner(System.in); // Reading from System.in
-        int in=0;
         
 
         while (!n.equals("")) { //n.equals car les strings n'utilisent pas == ou !=
@@ -44,17 +66,17 @@ public class Test {
                 arrayCalcul.add("");
                 reader.close();
             }
-            in++;
         }
 
         
         System.out.println("--------------------------------------------");
-        for (int i=0;i<arrayCalcul.size();i++){
+        for (String i : arrayCalcul)
+        {
             try {
                 //Pour mettre un string en int 
                 //Integer.parseInt(string);
-                Integer.parseInt(arrayCalcul.get(i));
-                strResult+=(arrayCalcul.get(i));
+                Integer.parseInt(i);
+                strResult+=i;
             } catch (NumberFormatException e) 
             {
                 // TODO: handle exception
@@ -64,9 +86,9 @@ public class Test {
                 {
                     a=Integer.parseInt(strResult);
                     strResult="";
-                    strOperation=arrayCalcul.get(i);
+                    strOperation=i;
                 }
-                else if (i==((arrayCalcul.size())-1))
+                else if (i.equals(""))
                 {
                     b=Integer.parseInt(strResult);
                     strResult="";
@@ -80,12 +102,10 @@ public class Test {
                         b=Integer.parseInt(strResult);
                         strResult="";
                         result=operator_detector(strOperation,a,b);
-                        strOperation=arrayCalcul.get(i);
+                        strOperation=i;
                         a=result;
                     }
-                }
-
-                    
+                }             
             }
         }
         System.out.println();
