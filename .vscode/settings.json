@@ -3,6 +3,7 @@
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "c:\\Program Files\\OpenJFX\\lib/**/*.jar"
+        "c:\\Program Files\\OpenJFX\\lib/**/*.jar",
+        "c:\\Program Files\\OpenFX\\lib/**/*.jar"
     ]
 }

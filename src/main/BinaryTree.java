@@ -1,15 +1,16 @@
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
-/*/
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
-*/
+package main;
+//import java.util.LinkedList;
+//import java.util.Queue;
+//import java.util.Stack;
+
 
 public class BinaryTree {
     Node root;
     public void add(int value) {
         root = addRecursive(root, value);
+    }
+    public void delete(int value) {
+        root = deleteRecursive(root, value);
     }
     private Node addRecursive (Node current, int value){
         if (current==null){
@@ -24,20 +25,29 @@ public class BinaryTree {
         }
         return current;
     }
-    private BinaryTree createBinaryTree() {
-        BinaryTree bt = new BinaryTree();
-    
-        bt.add(6);
-        bt.add(4);
-        bt.add(8);
-        bt.add(3);
-        bt.add(5);
-        bt.add(7);
-        bt.add(9);
-    
-        return bt;
-    
 
+    private Node deleteRecursive (Node current, int value)
+    {
+        if (current.value==value) {
+            if (current.left==null && current.right==null) {
+                return null;
+            }
+            if (current.left!=null && current.right!=null) {
+                return current;
+            }
+        }
+        if(value<current.value)
+        {
+            current.left=deleteRecursive(current.left, value);
+        }
+        else if (value>current.value) {
+            current.right=deleteRecursive(current.right, value);
+        }
+        else
+        {
+            return current;   
+        }        
+        return current;
     }
     private boolean containsNodeRecursive(Node current, int value) {
         if (current == null) {
@@ -55,13 +65,6 @@ public class BinaryTree {
         return containsNodeRecursive(root, value);
     }
 
-    public void givenABinaryTree_WhenAddingElements_ThenTreeContainsThoseElements() {
-    BinaryTree bt = createBinaryTree();
-
-    assertTrue(bt.containsNode(6));
-    assertTrue(bt.containsNode(4));
- 
-    assertFalse(bt.containsNode(1));
 }
     class Node {
         int value;
@@ -76,5 +79,5 @@ public class BinaryTree {
     }
     
     
-}
+
 

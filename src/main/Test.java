@@ -1,3 +1,4 @@
+package main;
 import java.util.Scanner;
 import java.util.ArrayList;
 public class Test {
@@ -79,9 +80,6 @@ public class Test {
                 strResult+=i;
             } catch (NumberFormatException e) 
             {
-                // TODO: handle exception
-                
-
                 if (strOperation.equals(""))
                 {
                     a=Integer.parseInt(strResult);

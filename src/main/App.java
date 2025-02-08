@@ -1,11 +1,12 @@
+package main;
 import javafx.application.Application;
-import javafx.application.Platform;
+//import javafx.application.Platform;
 import javafx.scene.paint.Color;
-import javafx.scene.Group;
+//import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
-import javafx.event.*;
+//import javafx.event.*;
 //import javafx.stage.StageStyle;
 /*
  * DECORATED
@@ -21,7 +22,7 @@ public class App extends Application {
         //Test myObj= new Test();
         //Test pour utiliser une classe dans un autre fichier
         //System.out.println(myObj.main());
-        Color black = Color.BLACK;
+        //Color black = Color.BLACK;
         Color white=Color.WHITE;
 
         //Création du stack panel pour y mettre le bouton
