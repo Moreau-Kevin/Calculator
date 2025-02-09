@@ -5,12 +5,21 @@ package main;
 
 
 public class BinaryTree {
-    Node root;
+    public Node root;
     public void add(int value) {
         root = addRecursive(root, value);
     }
     public void delete(int value) {
         root = deleteRecursive(root, value);
+    }
+
+    public void TraverseInOrder(Node node){
+        if (node!=null)
+        {
+            TraverseInOrder(node.left);
+            System.out.print(" "+node.value);
+            TraverseInOrder(node.right);
+        }
     }
     private Node addRecursive (Node current, int value){
         if (current==null){
@@ -45,9 +54,22 @@ public class BinaryTree {
         }
         else
         {
-            return current;   
+            int smallestValue = findSmallestValue(current.right);
+            current.value = smallestValue;
+            current.right = deleteRecursive(current.right, smallestValue);
+            return current;
         }        
         return current;
+    }
+    private int findSmallestValue(Node root)
+    {
+        if (root.left==null)
+        {
+            return root.value;
+        }
+        else{
+            return findSmallestValue(root.left);
+        }
     }
     private boolean containsNodeRecursive(Node current, int value) {
         if (current == null) {
