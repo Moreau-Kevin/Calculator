@@ -21,6 +21,23 @@ public class BinaryTree {
             TraverseInOrder(node.right);
         }
     }
+
+    public void TraversePreOrder(Node node){
+        if (node != null) {
+            TraversePreOrder(node.left);
+            TraversePreOrder(node.right);
+            System.out.print(" " + node.value);
+        }
+    }
+
+    public void TraversePostOrder(Node node){
+        if (node!=null)
+        {
+            TraversePreOrder(node.left);
+            TraversePreOrder(node.right);
+            System.out.print(" "+node.value);
+        }
+    }
     private Node addRecursive (Node current, int value){
         if (current==null){
             return new Node(value);

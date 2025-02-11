@@ -30,12 +30,24 @@ public class BinaryTreeTest {
         BinaryTree bt = createBinaryTree();
 
         bt.TraverseInOrder(bt.root);
-        System.out.println("Print");
+    }
+
+    @Test
+    public void TraversePreOrderTest()
+    {
+        BinaryTree bt = createBinaryTree();
+        bt.TraversePreOrder(bt.root);
+    }
+    @Test
+    public void TraversePostOrderTest()
+    {
+        BinaryTree bt = createBinaryTree();
+        bt.TraversePostOrder(bt.root);
     }
 
     private BinaryTree createBinaryTree() {
         BinaryTree bt = new BinaryTree();
-
+    
         bt.add(6);
         bt.add(4);
         bt.add(8);
@@ -43,7 +55,7 @@ public class BinaryTreeTest {
         bt.add(5);
         bt.add(7);
         bt.add(9);
-
+    
         return bt;
     }
 }
