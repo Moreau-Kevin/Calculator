@@ -30,6 +30,7 @@ public class BinaryTreeTest {
         BinaryTree bt = createBinaryTree();
 
         bt.TraverseInOrder(bt.root);
+        System.out.println("Print");
     }
 
     private BinaryTree createBinaryTree() {
