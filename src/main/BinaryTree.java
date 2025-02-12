@@ -3,6 +3,8 @@ package main;
 //import java.util.Queue;
 //import java.util.Stack;
 
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class BinaryTree {
     public Node root;
@@ -36,6 +38,28 @@ public class BinaryTree {
             TraversePreOrder(node.left);
             TraversePreOrder(node.right);
             System.out.print(" "+node.value);
+        }
+    }
+    public void TraverseLevelOrder()
+    {
+        if (root==null) {
+            return;
+        }
+        Queue<Node> nodes=new LinkedList<>();
+        nodes.add(root);
+        while (!nodes.isEmpty()) {
+
+            Node node = nodes.remove();
+    
+            System.out.print(node.value+" ");
+    
+            if (node.left != null) {
+                nodes.add(node.left);
+            }
+    
+            if (node.right != null) {
+                nodes.add(node.right);
+            }
         }
     }
     private Node addRecursive (Node current, int value){
