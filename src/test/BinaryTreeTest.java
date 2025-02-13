@@ -25,13 +25,18 @@ public class BinaryTreeTest {
         assertFalse(bt.containsNode(3));
     }
     @Test
-    public void TraverseInOrderTest()
+    public void TraverseInOrderAndAddingValueTest()
     {
         System.out.println("--------------------------------- TRAVERSE IN ORDER TEST --------------------------------------------");
         BinaryTree bt = createBinaryTree();
 
         bt.TraverseInOrder(bt.root);
-        System.err.println();
+        System.out.println();
+        bt.add(10);
+        bt.add(4);
+        bt.add(6);
+        bt.TraversePreOrder(bt.root);
+        System.out.println();
         System.out.println("-------------------------------------------------------------------------------------------------------");
     }
 
